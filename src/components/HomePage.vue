@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div class="row h100 relative">
 
-    <div class="col-md-12 col-lg-8 col-s-12 content" id="content">
-      <b-navbar toggleable="lg" sticky="true">
-        <b-navbar-brand href="#"> <img src="../assets/logo.png" class="logosize" /></b-navbar-brand>
+      <b-navbar toggleable="lg" sticky="true" class="fixed navheader">
+        <b-navbar-brand href="/"> <img src="../assets/logo.png" class="logosize" /></b-navbar-brand>
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       </b-navbar>
 
@@ -22,13 +20,15 @@
         <b-navbar-nav class="ml-auto">
         </b-navbar-nav>
     </b-collapse>
-
+    <div class="row h100 relative">
       <div class="float-right"><img src="../assets/bg image.png" class="fixed chain" /></div>
-
+    <div class="col-md-12 col-lg-8 col-s-12 content" id="content">
       <b-jumbotron  id="brand" bg-variant="transparent" text-variant="white" header="CryptoCrat" >
+      <div class="pT30 textindex">
       <div class="vrline inline"></div>
       <p class="inline p15">A transparent,reliable blockchain database which is accessible to everyone.An organisation that also provides paid consultancy service based on highly efficient technical analysis.</p>
       <div class="vrline inline"></div>
+      </div>
       </b-jumbotron>
       <div class="pL">
         <img src="../assets/playstore.svg" class="storeicon"/>
@@ -36,16 +36,16 @@
         <p>Click on thge icon <br> to download our app now!!</p>
         </div>
         </div>
-
     </div>
-    <div id="nav" class="col-lg-4 stacknav pT50">
+
+    <div id="nav" class="col-lg-4 right stacknav fixed pT50">
     <div class="mT10">
     <div class="hrbar"></div>
     <div class="clear">
     <b-nav  vertical class="pR alignR">
         <b-nav-item >Blog</b-nav-item>
         <b-nav-item href="/team">Team</b-nav-item>
-        <b-nav-item>F.A.Q</b-nav-item>
+        <b-nav-item href="#features">F.A.Q</b-nav-item>
         <b-nav-item >News</b-nav-item>
         <b-nav-item >Coins</b-nav-item>
         <b-nav-item >About</b-nav-item>
@@ -53,16 +53,26 @@
       </b-nav>
       </div>
     <div class="hrbar"></div>
-    <button class="mT30 login pull-right"> <span class="logintxt">LOGIN/REGISTER</span></button>
+    <button v-on:click="loginpage()" class="mT30 login pull-right"> <span class="logintxt">LOGIN/REGISTER</span></button>
     </div>
     </div>
     </div>
-
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    loginpage () {
+      this.$router.push({ path: '/login' })
+    }
+  }
+}
+</script>
 <style>
 .content {
   background-color:#8a8b8b;
+  height:97vh;
+  margin-top:60px;
 }
 .pT50 {
   padding-top:50px;
@@ -71,11 +81,31 @@
   font-size:32px;
   color:#fff;
 }
+.navheader {
+  width: 66.7%;
+  background-color: #8a8b8b;
+}
 .stacknav {
   background-color:#3191b9;
+  right:0;
+  height:101vh;
+}
+.textindex {
+  position:relative;
+  z-index:3;
+}
+.display-3 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    position:relative;
+    z-index:3;
 }
 .pL {
   padding-left:1.5rem;
+}
+.pT30 {
+  padding-top:30px;
 }
 .pR {
   padding-right:1rem;
@@ -101,6 +131,11 @@ clear:both;
 display:none;
 }
 }
+@media screen and (min-width:300px) and (max-width:800px) {
+  .navheader {
+    width:100%;
+  }
+}
 .hrbar {
   content:"";
   height:5px;
@@ -113,7 +148,7 @@ display:none;
   clear:both;
 }
 .h100 {
-  height:100vh;
+  height:97vh;
 }
 .mT10 {
   margin-top:10%
@@ -132,10 +167,10 @@ display:none;
   clear:both;
   display:block;
   opacity: 0.5;
-  top: auto;
+  top: 68px;
   right: 15%;
   z-index: 1;
-  height: 545px;
+  height: 528px;
 }
 }
 @media screen and (min-width: 370px) and (max-width: 500px) {
@@ -143,7 +178,7 @@ display:none;
   clear:both;
   display:block;
   opacity: 0.5;
-  top: auto;
+  top: 70px;
   right: -70%;
   z-index: 1;
 }
@@ -153,9 +188,26 @@ display:none;
   clear:both;
   display:block;
   opacity: 0.5;
-  top: auto;
+  top: 100px;
   right: -30%;
   z-index: 1;
+}
+.right {
+right:0;
+}
+}
+@media screen and (min-width: 300px) and (max-width: 500px) {
+.vrline {
+  content:"";
+  height:160px !important;
+  width:5px;
+  background-color:#fff;
+  opacity:0.7;
+}
+}
+@media screen and (min-width: 300px) and (max-width: 500px) {
+#brand p {
+      max-width: 269px !important;
 }
 }
 #nav .nav-link {
