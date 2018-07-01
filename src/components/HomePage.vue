@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div id="home">
 
       <b-navbar toggleable="lg" sticky="true" class="fixed navheader">
         <b-navbar-brand href="/"> <img src="../assets/logo.png" class="logosize" /></b-navbar-brand>
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       </b-navbar>
 
-      <b-collapse is-nav id="nav_collapse">
+      <b-collapse sticky="true" is-nav id="nav_collapse">
       <b-nav  vertical class="w-25">
         <b-nav-item >Blog</b-nav-item>
         <b-nav-item href="/team">Team</b-nav-item>
@@ -21,7 +21,7 @@
         </b-navbar-nav>
     </b-collapse>
     <div class="row h100 relative">
-      <div class="float-right"><img src="../assets/bg image.png" class="fixed chain" /></div>
+      <div class="float-right "><img src="../assets/bg image.png" id="bg_image" class="fixed chain animate" /></div>
     <div class="col-md-12 col-lg-8 col-s-12 content" id="content">
       <b-jumbotron  id="brand" bg-variant="transparent" text-variant="white" header="CryptoCrat" >
       <div class="pT30 textindex">
@@ -37,7 +37,6 @@
         </div>
         </div>
     </div>
-
     <div id="nav" class="col-lg-4 right stacknav fixed pT50">
     <div class="mT10">
     <div class="hrbar"></div>
@@ -56,19 +55,58 @@
     <button v-on:click="loginpage()" class="mT30 login pull-right"> <span class="logintxt">LOGIN/REGISTER</span></button>
     </div>
     </div>
+    <div class="col-md-12 col-lg-8 col-s-12" id="features">
+      <div class="layout">
+      <features></features>
+        <team></team>
+      </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import Features from '@/components/Features'
+import Team from '@/components/Team'
 export default {
+  components: {
+    Features,
+    Team
+  },
+  mounted () {
+
+  },
   methods: {
     loginpage () {
       this.$router.push({ path: '/login' })
+    },
+    scroll () {
     }
   }
 }
 </script>
 <style>
+.row {
+  margin-right:0px !important;
+  margin-left:0px !important;
+}
+.layout {
+  background-color:"#fff"!important;
+  height:"100vh"!important;
+}
+.animate {
+  position:relative;
+  -webkit-animation: moveimg 5s;
+  animation: moveimg 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes moveimg {
+  0%  {top:68px;right:15%;height:528px;}
+  100% {top:120px;right:59%;height:0px;}
+}
+@-webkit-keyframes moveimg {
+  0%  {top:68px;right:15%;height:528px;}
+  100% {top:120px;right:59%;height:0px;}
+}
 .content {
   background-color:#8a8b8b;
   height:97vh;
@@ -220,7 +258,7 @@ right:0;
 .login {
   background-color:#97a1a2;
   border-radius:28px;
-  border-color:#97a1a2;
+  border-width:0px;
   margin-right:-50px;
 }
 .pull-right {
@@ -254,9 +292,22 @@ right:0;
 .storeicon {
   height:50px;
   width:50px;
+  margin-top: -15px;
 }
 #playstore p {
   text-decoration: underline;
   text-transform: uppercase;
+}
+ #home .col-lg-6 {
+  padding-right:0px!important;
+  padding-left:0px!important;
+}
+#home .col-md-12 {
+  padding-right:0px!important;
+  padding-left:0px!important;
+}
+#home .col-s-12 {
+  padding-right:0px!important;
+  padding-left:0px!important;
 }
 </style>

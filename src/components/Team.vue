@@ -1,107 +1,153 @@
 <template>
-<div>
-    <div class="feed"  >
-    <div  class="card" v-for="feed in feeds" :key="feed">
-    <img class="thumb" v-bind:src="feed.pic">
-    <article>
-    <p>{{feed.sub}}</p>
-    </article>
+<div id="team" class="h100">
+  <div class="center1">
+  <div class="circle inline"></div>
+  <div class="team inline">Team Members</div>
+  <div class="circle inline"></div>
+  </div>
+    <div class="row relative">
+      <div class="col-md-6 col-lg-6 col-s-12">
+        <div class="bluebox">
+          <img src="../assets/profile.jpg" class="cimg"/>
+          <div class="cntr mT15 title">Linga</div>
+          <div class="cntr subt">Web-developer</div>
+          <div class="cntr mT30 role">Text</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6  col-s-12">
+        <div class="greybox ">
+          <img src="../assets/profile.jpg" class="cimg"/>
+          <div class="cntr mT15 title">Linga</div>
+          <div class="cntr subt">Web-developer</div>
+          <div class="cntr mT30 role">Text</div>
+        </div>
+      </div>
     </div>
+    <div class="row relative">
+      <div class="col-md-6 col-lg-6 col-s-12">
+        <div class="greybox ">
+          <img src="../assets/profile.jpg" class="cimg"/>
+          <div class="cntr mT15 title">Linga</div>
+          <div class="cntr subt">Web-developer</div>
+          <div class="cntr mT30 role">Text</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6  col-s-12">
+        <div class="bluebox ">
+          <img src="../assets/profile.jpg" class="cimg"/>
+          <div class="cntr mT15 title">Linga</div>
+          <div class="cntr subt">Web-developer</div>
+          <div class="cntr mT30 role">Text</div>
+        </div>
+      </div>
     </div>
 </div>
 </template>
-<script>
-export default {
-  data () {
-    return {
-      feeds: [
-        {
-          pic: 'https://i2.wp.com/uknews.co.in/wp-content/uploads/2017/12/new-year-party-in-doon.jpg?resize=300%2C350',
-          sub: 'afadfsdfsdfsddfd'
-        },
-        {
-          pic: 'https://i2.wp.com/uknews.co.in/wp-content/uploads/2017/12/new-year-party-in-doon.jpg?resize=300%2C350',
-          sub: 'afadfsdfsdfsddfd'
-        },
-        {
-          pic: 'https://i2.wp.com/uknews.co.in/wp-content/uploads/2017/12/new-year-party-in-doon.jpg?resize=300%2C350',
-          sub: 'afadfsdfsdfsddfd'
-        },
-        {
-          pic: 'https://i2.wp.com/uknews.co.in/wp-content/uploads/2017/12/new-year-party-in-doon.jpg?resize=300%2C350',
-          sub: 'afadfsdfsdfsddfd'
-        },
-        {
-          pic: 'https://i2.wp.com/uknews.co.in/wp-content/uploads/2017/12/new-year-party-in-doon.jpg?resize=300%2C350',
-          sub: 'afadfsdfsdfsddfd'
-        },
-        {
-          pic: 'https://i2.wp.com/uknews.co.in/wp-content/uploads/2017/12/new-year-party-in-doon.jpg?resize=300%2C350',
-          sub: 'afadfsdfsdfsddfd'
-        }
-      ]
-    }
-  }
-}
-</script>
 <style>
-.feed {
-  width: 90%;
-  max-width: 1240px;
-  margin: 0 auto;
-  position:absolute;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 20px;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
+.mT15{
+  margin-top:15px;
 }
-
-@media only screen and (min-width: 500px) {
-  .feed {
-    grid-template-columns: 1fr 1fr;
-  }
+.team{
+letter-spacing:5px;
 }
-@media only screen and (min-width: 300px) and (max-width: 500px) {
-  .feed {
-    height:180px;
-    width:220px;
-  }
-    }
-    @media only screen and (min-width: 500px) and (max-width: 1440px) {
-  .feed {
-    height:317px;
-    width:735px;
-  }
-    }
-@media only screen and (min-width: 850px) {
-  .feed {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+.center1 {
+  margin-top:30px;
+  margin-left:40%;
+  padding-bottom:15px;
 }
-.card {
-  background: white;
-  text-decoration: none;
-  color: #444;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-
-  position: relative;
-  top: 0;
-  transition: all .1s ease-in;
+@media screen and (min-width:300px) and (max-width:500px) {
+  .center1 {
+  margin-top:30px;
+  margin-left:30%;
+  padding-bottom:15px;
 }
-.card:hover {
-  top: -2px;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
 }
-.card article {
-  padding: 20px;
+.circle {
+  content:'';
+  height:15px;
+  width:15px;
+  border:solid 1px #444;
+  border-radius:50%;
 }
-.card .thumb {
-  background-size: cover;
-  background-position: center center;
+#team .cntr{
+  text-align: center;
+  margin-left:auto;
+}
+#team .cimg {
+  height:150px;
+  width:150px;
+  border-radius:50%;
+  margin-left:75px;
+}
+@media screen and (min-width:300px) and (max-width:350px) {
+  #team .cimg {
+  height:150px;
+  width:150px;
+  border-radius:50%;
+  margin-left:25px;
+}
+}
+@media screen and (min-width:351px) and (max-width:700px) {
+ #team .cimg {
+  height:150px;
+  width:150px;
+  border-radius:50%;
+  margin-left:78px;
+}
+}
+@media screen and (min-width:1000px) and (max-width: 1080px) {
+ #team .cimg {
+  height:150px;
+  width:150px;
+  border-radius:50%;
+  margin-left:32%;
+}
+}
+@media screen and (min-width:1100px) and (max-width:2000px) {
+ #team .cimg {
+  height:150px;
+  width:150px;
+  border-radius:50%;
+  margin-left: 38%;
+}
+}
+.title{
+font-weight: 500;
+font-size:18px;
+color:#fff;
+}
+.subt{
+font-size:14px;
+color:#fff;
+}
+.role{
+font-size:12px;
+color:#fff;
+}
+.bluebox{
+  background-color:aqua;
+  padding: 50px;
+}
+.greybox{
+  background-color:#333;
+  padding: 50px;
+}
+#team .col-lg-6 {
+  padding-right:0px!important;
+  padding-left:0px!important;
+}
+#team .col-md-12 {
+  padding-right:0px!important;
+  padding-left:0px!important;
+}
+#team .col-s-12 {
+  padding-right:0px!important;
+  padding-left:0px!important;
+}
+.w96 {
+  width: 96%;
+}
+.inline {
+  display:inline-block;
 }
 </style>
